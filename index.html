@@ -31,7 +31,7 @@
                         <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-100">
                     </div>
                     <ul class="list-unstyled">
-                        <li class="p-2 border d-flex justify-content-between align-items-center" v-for="listItem,index in contacts">
+                        <li class="p-2 border d-flex justify-content-between align-items-center" v-for="listItem,index in contacts" @click="clickIndex=index">
                             <span class="w-25"><img class="avatar" :src="listItem.avatar" alt=""></span>
                             <span class="w-75 fw-bold">
                                {{listItem.name}}
@@ -42,13 +42,13 @@
                 <div class="col-70">
                     <div class="header-chat d-flex justify-content-between align-items-center mb-3">
                         <div>
-                            <img class="avatar m-1" :src="contacts[0].avatar" alt="">
-                            <span>{{contacts[0].name}}</span>
+                            <img class="avatar m-1" :src="contacts[clickIndex].avatar" alt="">
+                            <span>{{contacts[clickIndex].name}}</span>
                         </div>
                         <div><i class="fa-solid fa-magnifying-glass p-2"></i><i class="fa-solid fa-paperclip p-2"></i><i class="p-2 fa-solid fa-ellipsis-vertical"></i></div>
                     </div>
                     <div class="chat">
-                        <div v-for="message in contacts[0].messages" :class="message.status === 'sent' ? 'messSent' : 'messReceived'">
+                        <div v-for="message in contacts[clickIndex].messages" :class="message.status === 'sent' ? 'messSent' : 'messReceived'">
                             <p>{{message.message}}</p> 
                             <span>{{message.date}}</span>
                         </div>
