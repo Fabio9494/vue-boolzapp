@@ -28,14 +28,16 @@
                         </div>
                     </div>
                     <div>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" class="w-100">
+                    <input class="w-100" type="text" v-model="cerca" placeholder="Cerca o inizia una nuova chat" @keyup="search">
                     </div>
                     <ul class="list-unstyled">
-                        <li class="p-2 border d-flex justify-content-between align-items-center" v-for="listItem,index in contacts" @click="clickIndex=index">
-                            <span class="w-25"><img class="avatar" :src="listItem.avatar" alt=""></span>
-                            <span class="w-75 fw-bold">
-                               {{listItem.name}}
-                            </span>
+                        <li class="d-flex justify-content-between align-items-center"  v-for="(listItem,index) in contacts" :key="index" @click="clickIndex=index">
+                            <div v-show="listItem.visible" >
+                               <span class="w-25"><img class="avatar m-2" :src="listItem.avatar" alt=""></span>
+                               <span class="w-75 fw-bold">
+                                  {{listItem.name}}
+                               </span>
+                            </div>
                         </li>
                     </ul>
                 </div>

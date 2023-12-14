@@ -4,11 +4,12 @@ createApp({
     data(){
         return{ 
             clickIndex:0,
+            cerca:'',
             contacts: [
                 {
                   name: 'Michele',
                   avatar: './img/avatar_1.jpg',
-                  visible: true,
+                  visible: 'true',
                   messages: [
                     {
                       date: '10/01/2020 15:30:55',
@@ -190,5 +191,16 @@ createApp({
           this.contacts[this.clickIndex].messages.push(obj)
       },1000)
       },
+      search(){
+        this.contacts.forEach((elem) => {
+          if(elem.name.toLowerCase().includes(this.cerca.toLowerCase())){
+            console.log(elem)
+            elem.visible=true;
+          }
+          else{
+            elem.visible=false;
+          }
+        });
+      }
     },
 }).mount('#app');
