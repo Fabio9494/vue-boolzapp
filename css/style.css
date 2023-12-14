@@ -51,14 +51,15 @@ body{
 .messSent{
     background-color: #D5F9BB;
     width: 40%;
-    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 485px;
+    word-break: break-all;
 }
 
 .messReceived{
     background-color: white;
     width: 40%;
-    margin: 5px 0 0 30px;
+    margin: 0 0 5px 30px;
 }
 
 .header-chat , .footer-chat{
@@ -68,6 +69,7 @@ body{
 
 .chat{
     height: calc(100% - 136px);
+    overflow-y: auto;
 }
 
 .height-60{

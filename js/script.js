@@ -171,6 +171,24 @@ createApp({
         }
     },
     methods: {
-      
+      addNewMessage(){
+        this.data = new Date();
+        let obj={
+          date: `${this.data.getHours()}:${this.data.getMinutes()}`,
+          message: this.newMessage,
+          status: 'sent'
+        }
+        this.contacts[this.clickIndex].messages.push(obj)
+        this.newMessage = this.h;
+
+        this.interval = setTimeout(() => {
+          let obj={
+            date: `${this.data.getHours()}:${this.data.getMinutes()}`,
+            message: "ok",
+            status: 'received'
+          }
+          this.contacts[this.clickIndex].messages.push(obj)
+      },1000)
+      },
     },
 }).mount('#app');

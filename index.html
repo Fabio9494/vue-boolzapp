@@ -48,14 +48,14 @@
                         <div><i class="fa-solid fa-magnifying-glass p-2"></i><i class="fa-solid fa-paperclip p-2"></i><i class="p-2 fa-solid fa-ellipsis-vertical"></i></div>
                     </div>
                     <div class="chat">
-                        <div v-for="message in contacts[clickIndex].messages" :class="message.status === 'sent' ? 'messSent' : 'messReceived'">
+                        <div class="p-2" v-for="message in contacts[clickIndex].messages" :class="message.status === 'sent' ? 'messSent' : 'messReceived'">
                             <p>{{message.message}}</p> 
-                            <span>{{message.date}}</span>
+                            <span class="d-flex justify-content-end font-size-10">{{message.date}}</span>
                         </div>
                     </div>
                     <div class="footer-chat d-flex justify-content-around align-items-center">
                         <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" placeholder="Scrivi un messaggio" class="w-75 h-75">
+                        <input v-model="newMessage" type="text" placeholder="Scrivi un messaggio" class="w-75 h-75" @keyup.enter="addNewMessage" >
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </div>
