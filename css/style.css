@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #009688 20vh, #D8DBD6 20vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp-container{
+    height: 90vh;
+    width: 80vw;
+}
+
+.col-30{
+    width: 30vw;
+    height: 100%;
+    background-color: white;
+}
+
+.col-70{
+    width: 70vw;
+    height: 100%;
+    background-image: url(../img/mine.jpg);
+}
+
+.avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.bg-8EDAFC{
+    background-color: #8EDAFC;
+}
+
+.bg-EAEAEA{
+    background-color: #EAEAEA;
+}
+
+
+.font-size-10{
+    font-size: 10px;
+}
+
+.messSent{
+    background-color: #D5F9BB;
+    width: 40%;
+    margin-top: 5px;
+    margin-left: 485px;
+}
+
+.messReceived{
+    background-color: white;
+    width: 40%;
+    margin: 5px 0 0 30px;
+}
+
+.header-chat , .footer-chat{
+    background-color: #EAEAEA;
+    height: 60px;
+}
+
+.chat{
+    height: calc(100% - 136px);
+}
+
+.height-60{
+    height: 60px;
+}
