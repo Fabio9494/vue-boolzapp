@@ -32,21 +32,33 @@
                     </div>
                     <ul class="list-unstyled">
                         <li class="d-flex justify-content-between align-items-center"  v-for="(listItem,index) in contacts" :key="index" @click="clickIndex=index">
-                            <div v-show="listItem.visible" >
-                               <span class="w-25"><img class="avatar m-2" :src="listItem.avatar" alt=""></span>
-                               <span class="w-75 fw-bold">
-                                  {{listItem.name}}
-                               </span>
+                            <div v-show="listItem.visible"  >
+                              <div class="d-flex">
+                               <img class="avatar m-2" :src="listItem.avatar" alt="">
+                               <div>
+                                  <div class="w-100 fw-bold mt-2">
+                                    {{listItem.name}}
+                                  </div>
+                                  <div v-for="(item, index) in contacts[index].messages" :key="index">
+                                    <div v-if="index==listItem.messages.length-1" class="font-size-10">{{item.message}} {{item.date}}</div>
+                                  </div>
+                                </div>  
+                               </div>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="col-70">
                     <div class="header-chat d-flex justify-content-between align-items-center mb-3">
-                        <div>
+                          <div class="d-flex align-items-center">
                             <img class="avatar m-1" :src="contacts[clickIndex].avatar" alt="">
-                            <span>{{contacts[clickIndex].name}}</span>
-                        </div>
+                            <div>
+                             <div class="fw-bolder">{{contacts[clickIndex].name}}</div>
+                             <div v-for="(item,index) in contacts[clickIndex].messages">
+                                <div v-if="index==contacts[clickIndex].messages.length-1" class="font-size-10"> ultimo accesso {{item.date}}</div>
+                             </div>
+                            </div>
+                           </div>
                         <div><i class="fa-solid fa-magnifying-glass p-2"></i><i class="fa-solid fa-paperclip p-2"></i><i class="p-2 fa-solid fa-ellipsis-vertical"></i></div>
                     </div>
                     <div class="chat">

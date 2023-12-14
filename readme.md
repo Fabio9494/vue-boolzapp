@@ -15,6 +15,6 @@ Milestone 3
 Milestone 4
 Ricerca utenti: scrivendo qualcosa nell'input a sinistra, vengono visualizzati solo į contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo "mar" rimangono solo Marco e Martina)
 
-Milestone 5 - Qpzionale
+Milestone 5 - Opzionale
 • Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 • Visualizzazione ora e ultimo messaggio inviato ricevuto nella lista dei contatti
