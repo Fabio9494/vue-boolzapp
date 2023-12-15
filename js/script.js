@@ -5,6 +5,7 @@ createApp({
         return{ 
             clickIndex:0,
             cerca:'',
+            min:0,
             contacts: [
                 {
                   name: 'Michele',
@@ -174,8 +175,10 @@ createApp({
     methods: {
       addNewMessage(){
         this.data = new Date();
+        this.min=this.data.getMinutes();
+        if(this.min < 10) {this.min='0'+ this.data.getMinutes()};
         let obj={
-          date: `${this.data.getHours()}:${this.data.getMinutes()}`,
+          date: `${this.data.getHours()}:${this.min}`,
           message: this.newMessage,
           status: 'sent'
         }
@@ -184,7 +187,7 @@ createApp({
 
         this.interval = setTimeout(() => {
           let obj={
-            date: `${this.data.getHours()}:${this.data.getMinutes()}`,
+            date: `${this.data.getHours()}:${this.min}`,
             message: "ok",
             status: 'received'
           }
@@ -201,6 +204,12 @@ createApp({
             elem.visible=false;
           }
         });
-      }
+      },
+      removeItem(i,iMess){
+        let conf = confirm("vuoi eliminare questo messaggio?");
+        if(conf){
+            this.contacts[i].messages.splice(iMess,1);
+        }
+    }
     },
 }).mount('#app');

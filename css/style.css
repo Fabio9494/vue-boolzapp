@@ -75,3 +75,11 @@ body{
 .height-60{
     height: 60px;
 }
+
+.icon{
+    display: none;
+}
+
+.show:hover .icon{
+    display: block;
+}
