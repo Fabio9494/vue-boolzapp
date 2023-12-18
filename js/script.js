@@ -2,6 +2,7 @@ const {createApp} = Vue;
 
 createApp({
     data(){
+
         return{ 
             clickIndex:0,
             cerca:'',
@@ -210,6 +211,6 @@ createApp({
         if(conf){
             this.contacts[i].messages.splice(iMess,1);
         }
-    }
+     },
     },
 }).mount('#app');

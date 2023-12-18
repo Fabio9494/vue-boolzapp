@@ -39,6 +39,10 @@ body{
     background-color: #8EDAFC;
 }
 
+.color-8EDAFC{
+    color: #8EDAFC;
+}
+
 .bg-EAEAEA{
     background-color: #EAEAEA;
 }
@@ -69,7 +73,8 @@ body{
 
 .chat{
     height: calc(100% - 136px);
-    overflow-y: auto;
+    overflow-y: scroll;
+    
 }
 
 .height-60{
@@ -82,4 +87,8 @@ body{
 
 .show:hover .icon{
     display: block;
+}
+
+.active {
+    background-color: rgb(209, 209, 209);
 }

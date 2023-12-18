@@ -22,17 +22,21 @@
                         <div><i class="fa-solid fa-circle-notch p-2"></i><i class="fa-solid fa-message p-2"></i><i class="p-2 fa-solid fa-ellipsis-vertical"></i></div>
                     </div>
                     <div class="d-flex bg-8EDAFC font-size-10 align-items-center">
-                        <div class="m-2 avatar border d-flex justify-content-center align-items-center bg-light-subtle"><i class="fa-solid fa-bell-slash fa-xl"></i></div>
+                        <div class="m-2 avatar border d-flex justify-content-center align-items-center bg-light-subtle"><i class="fa-solid fa-bell-slash fa-xl color-8EDAFC"></i></div>
                         <div class="d-flex justify-content-center flex-column pt-3">
-                            <h6>Ricevi notifiche di nuovi messaggi</h6>
-                            <p>Attiva notifiche desktop</p>
+                            <h6 class="my-1">Ricevi notifiche di nuovi messaggi</h6>
+                            <p><u>Attiva notifiche desktop</u></p>
                         </div>
                     </div>
-                    <div>
-                    <input class="w-100" type="text" v-model="cerca" placeholder="Cerca o inizia una nuova chat" @keyup="search">
+                    
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass p-1"></i></span>
+                        <input class="form-control" type="text" v-model="cerca" placeholder="Cerca o inizia una nuova chat" @keyup="search" aria-describedby="basic-addon1">
                     </div>
+                          
                     <ul class="list-unstyled">
-                        <li class="d-flex justify-content-between align-items-center"  v-for="(listItem,index) in contacts" :key="index" @click="clickIndex=index">
+                        <li class="d-flex justify-content-between align-items-center"  v-for="(listItem,index) in contacts" :key="index" @click="clickIndex=index" 
+                        :class="clickIndex===index ? 'active' : ''">
                             <div v-show="listItem.visible" class="w-100"  >
                               <div class="d-flex">
                                <img class="avatar m-2" :src="listItem.avatar" alt="">
@@ -66,25 +70,23 @@
                         <div class="p-2 show" v-for="message,indexMessage in contacts[clickIndex].messages" :class="message.status === 'sent' ? 'messSent' : 'messReceived'">
                             <div class="d-flex justify-content-between">
                                 <p>{{message.message}}</p>
-                                
-                                    <div class="dropdown">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <p class="icon text-secondary-emphasis"><i class="fa-solid fa-chevron-down"></i></p>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="#">info message</a></li>
-                                          <li @click="removeItem(clickIndex,indexMessage)"><a class="dropdown-item" href="#">delete message</a></li>
-                                        </ul>
-                                      </div>
-                                
+                                <div class="dropdown">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <p class="icon text-secondary-emphasis"><i class="fa-solid fa-chevron-down"></i></p>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">info message</a></li>
+                                        <li @click="removeItem(clickIndex,indexMessage)"><a class="dropdown-item" href="#">delete message</a></li>
+                                    </ul>
+                                    </div>
                             </div>
                             <span class="d-flex justify-content-end font-size-10">{{message.date}}</span>
                         </div>
                     </div>
                     <div class="footer-chat d-flex justify-content-around align-items-center">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <input v-model="newMessage" type="text" placeholder="Scrivi un messaggio" class="w-75 h-75" @keyup.enter="addNewMessage" >
-                        <i class="fa-solid fa-microphone"></i>
+                        <i class="fa-regular fa-face-smile fa-lg"></i>
+                        <input v-model="newMessage" type="text" placeholder="Scrivi un messaggio" class="w-75 h-75" @keyup.enter="addNewMessage">
+                        <i class="fa-solid fa-microphone fa-lg"></i>
                     </div>
                 </div>
             </div>
